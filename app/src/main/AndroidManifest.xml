@@ -13,7 +13,61 @@
         android:theme="@style/Theme.Nike"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.User.EditProfile"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.User.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.User.SuccessfulPaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.User.SuccessPaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.User.SearchProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Admin.AddEditProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.User.SignInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.User.ProductDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Admin.QuanLySanPhamActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Admin.QuanLyDanhMucActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Admin.AdminTrangChuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.User.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.User.ForgetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.User.TrangChuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.User.WaitActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.User.SettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.User.CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.User.SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.User.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

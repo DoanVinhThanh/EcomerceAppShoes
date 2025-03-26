@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Nike</string>
+    <string name="open_nav">Nike</string>
+    <string name="close_nav">Nike</string>
 </resources>
