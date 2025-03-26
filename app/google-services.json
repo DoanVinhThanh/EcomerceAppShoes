@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "799792862431",
+    "project_id": "doanltdd-62a1d",
+    "storage_bucket": "doanltdd-62a1d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799792862431:android:68e4ea5920c9cd36de856a",
+        "android_client_info": {
+          "package_name": "com.example.appbookinghotel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRQw-6zZY227KCdDXkXiDnZbWw27L6Xwo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799792862431:android:54e8a59e743d5449de856a",
+        "android_client_info": {
+          "package_name": "com.example.nike"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRQw-6zZY227KCdDXkXiDnZbWw27L6Xwo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
