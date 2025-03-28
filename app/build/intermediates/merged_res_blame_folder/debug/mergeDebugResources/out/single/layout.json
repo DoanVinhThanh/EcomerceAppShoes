@@ -1,0 +1,166 @@
+[
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/fragment_women.xml",
+        "source": "com.example.nike.app-main-45:/layout/fragment_women.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_admin_trang_chu.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_admin_trang_chu.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/fragment_favorite.xml",
+        "source": "com.example.nike.app-main-45:/layout/fragment_favorite.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/fragment_order.xml",
+        "source": "com.example.nike.app-main-45:/layout/fragment_order.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/bottom_sheet_quality.xml",
+        "source": "com.example.nike.app-main-45:/layout/bottom_sheet_quality.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/dialog_category.xml",
+        "source": "com.example.nike.app-main-45:/layout/dialog_category.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_search.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_search.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/nav_header.xml",
+        "source": "com.example.nike.app-main-45:/layout/nav_header.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_trang_chu.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_trang_chu.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/fragment_dagiao.xml",
+        "source": "com.example.nike.app-main-45:/layout/fragment_dagiao.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/item_product.xml",
+        "source": "com.example.nike.app-main-45:/layout/item_product.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_forget_password.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_forget_password.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_product_detail.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_product_detail.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_add_edit_product.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_add_edit_product.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/fragment_dahuy.xml",
+        "source": "com.example.nike.app-main-45:/layout/fragment_dahuy.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/fragment_kid.xml",
+        "source": "com.example.nike.app-main-45:/layout/fragment_kid.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/fragment_home.xml",
+        "source": "com.example.nike.app-main-45:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/fragment_choxacnhan.xml",
+        "source": "com.example.nike.app-main-45:/layout/fragment_choxacnhan.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/item_color.xml",
+        "source": "com.example.nike.app-main-45:/layout/item_color.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_order_payment.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_order_payment.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_quan_ly_san_pham.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_quan_ly_san_pham.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_cart.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_cart.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/fragment_men.xml",
+        "source": "com.example.nike.app-main-45:/layout/fragment_men.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_quan_ly_danh_muc.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_quan_ly_danh_muc.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_success_payment.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_success_payment.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_setting.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_setting.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_edit_profile.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_edit_profile.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/item_admin_product.xml",
+        "source": "com.example.nike.app-main-45:/layout/item_admin_product.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_wait.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_wait.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_splash.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_search_product.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_search_product.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/item_admin_category.xml",
+        "source": "com.example.nike.app-main-45:/layout/item_admin_category.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/item_cart.xml",
+        "source": "com.example.nike.app-main-45:/layout/item_cart.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/item_image.xml",
+        "source": "com.example.nike.app-main-45:/layout/item_image.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/item_category.xml",
+        "source": "com.example.nike.app-main-45:/layout/item_category.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/fragment_shop.xml",
+        "source": "com.example.nike.app-main-45:/layout/fragment_shop.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_main.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_sign_in.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_sign_in.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/fragment_danggiao.xml",
+        "source": "com.example.nike.app-main-45:/layout/fragment_danggiao.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_profile.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_profile.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_sign_up.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_sign_up.xml"
+    }
+]

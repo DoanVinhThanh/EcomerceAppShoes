@@ -40,8 +40,18 @@ public class CategoryAdminAdapter extends RecyclerView.Adapter<CategoryAdminAdap
     @Override
     public void onBindViewHolder(@NonNull AdminCategoryViewHolder holder, int position) {
         AdminCategory category = categories.get(position);
-        holder.tvName.setText(category.getName());
-        Glide.with(holder.itemView.getContext()).load(Uri.parse(category.getImageUrl())).into(holder.imgCategory);
+
+
+        // Kiểm tra imageUrl trước khi load ảnh
+        if (category.getImageUrl() != null && !category.getImageUrl().isEmpty()) {
+            holder.tvName.setText(category.getName());
+            Glide.with(holder.itemView.getContext())
+                    .load(category.getImageUrl())
+                    .into(holder.imgCategory);
+        } else {
+            // Nếu không có ảnh, đặt ảnh mặc định
+            holder.imgCategory.setImageResource(R.drawable.ic_launcher_foreground);
+        }
 
         holder.btnEdit.setOnClickListener(v -> listener.onEditClick(category));
         holder.btnDelete.setOnClickListener(v -> listener.onDeleteClick(category));

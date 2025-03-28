@@ -1,9 +1,12 @@
 package com.example.nike.Activity.User;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
@@ -36,7 +39,10 @@ public class TrangChuActivity extends AppCompatActivity implements NavigationVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trang_chu);
         Anhxa();
-
+        Window window = getWindow();
+        window.getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        window.setStatusBarColor(Color.TRANSPARENT);
         //side menu
         setSupportActionBar(toolbar1);
 
@@ -58,7 +64,7 @@ public class TrangChuActivity extends AppCompatActivity implements NavigationVie
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        String title = "Home";
+        String title = "Trang chủ";
 
 
         if (id == R.id.nav_home) {

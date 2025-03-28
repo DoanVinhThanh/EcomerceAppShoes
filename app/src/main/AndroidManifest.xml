@@ -40,7 +40,7 @@
             android:name=".Activity.Admin.QuanLySanPhamActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.Admin.QuanLyDanhMucActivity"
+            android:name=".Activity.User.SplashActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.Admin.AdminTrangChuActivity"
@@ -52,7 +52,7 @@
             android:name=".Activity.User.ForgetPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.User.TrangChuActivity"
+            android:name=".Activity.Admin.QuanLyDanhMucActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.User.WaitActivity"
@@ -67,7 +67,7 @@
             android:name=".Activity.User.SearchActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.User.SplashActivity"
+            android:name=".Activity.User.TrangChuActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

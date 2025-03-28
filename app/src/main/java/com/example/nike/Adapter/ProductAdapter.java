@@ -1,5 +1,6 @@
 package com.example.nike.Adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,27 +10,33 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.nike.Model.Product;
+import com.bumptech.glide.Glide;
+import com.example.nike.Model.ProductAdmin;
 import com.example.nike.R;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
-    private List<Product> products;
+    private List<ProductAdmin> products;
+    private Context context;
     private OnItemClickListener onItemClickListener;
 
+    // Interface xử lý sự kiện click vào sản phẩm
     public interface OnItemClickListener {
-        void onItemClick(Product product);
+        void onItemClick(ProductAdmin product);
     }
 
+    // Setter để thiết lập sự kiện click
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.onItemClickListener = listener;
     }
 
-    public ProductAdapter(List<Product> products) {
+    public ProductAdapter(Context context, List<ProductAdmin> products) {
+        this.context = context;
         this.products = products;
     }
 
@@ -42,14 +49,20 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Product product = products.get(position);
-        holder.productImage.setImageResource(product.getImageResIdNewProduct());
-        holder.productName.setText(product.getNameNewProduct());
+        ProductAdmin product = products.get(position);
+
+        // Load ảnh từ Firestore bằng Glide
+        Glide.with(context).load(product.getImageUrl()).into(holder.productImage);
+
+        holder.productName.setText(product.getName());
+
+        // Format giá tiền
+
+        DecimalFormat decimalFormat = new DecimalFormat("#,### VNĐ");
+        holder.productPrice.setText(decimalFormat.format(product.getPrice()));
 
 
-        // Format price 
-        String formattedPrice = NumberFormat.getNumberInstance(Locale.US).format(product.getPriceProduct());
-        holder.productPrice.setText(formattedPrice);
+        // Khi nhấn vào sản phẩm -> Gọi sự kiện onItemClick
         holder.itemView.setOnClickListener(v -> {
             if (onItemClickListener != null) {
                 onItemClickListener.onItemClick(product);
@@ -64,14 +77,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView productImage;
-        TextView productName, productPrice, productSex;
+        TextView productName, productPrice;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             productImage = itemView.findViewById(R.id.image_product);
             productName = itemView.findViewById(R.id.name_product);
             productPrice = itemView.findViewById(R.id.price_product);
-
         }
     }
 }

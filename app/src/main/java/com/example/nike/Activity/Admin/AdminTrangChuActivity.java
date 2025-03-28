@@ -7,10 +7,11 @@ import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.nike.Activity.User.SignInActivity;
 import com.example.nike.R;
 
 public class AdminTrangChuActivity extends AppCompatActivity {
-    LinearLayout btnQuanLySanPham,btnQuanLyDanhMuc;
+    LinearLayout btnQuanLySanPham,btnQuanLyDanhMuc ,btnBackAdminToSignIn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +22,7 @@ public class AdminTrangChuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AdminTrangChuActivity.this,QuanLySanPhamActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         btnQuanLyDanhMuc.setOnClickListener(new View.OnClickListener() {
@@ -28,6 +30,15 @@ public class AdminTrangChuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AdminTrangChuActivity.this,QuanLyDanhMucActivity.class);
                 startActivity(intent);
+                finish();
+            }
+        });
+        btnBackAdminToSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminTrangChuActivity.this, SignInActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -35,6 +46,8 @@ public class AdminTrangChuActivity extends AppCompatActivity {
     private void Anhxa() {
         btnQuanLySanPham = findViewById(R.id.btn_quan_ly_san_pham);
         btnQuanLyDanhMuc = findViewById(R.id.btn_quan_ly_danh_muc);
+        btnBackAdminToSignIn = findViewById(R.id.btn_admin_back_sign_in);
+
 
     }
 }

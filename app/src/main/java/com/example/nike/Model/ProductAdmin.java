@@ -1,73 +1,39 @@
 package com.example.nike.Model;
-
 import java.util.List;
 
 public class ProductAdmin {
-    private int idProduct;
-    private String nameProduct;
-    private String priceProduct;
-    private List<String> sizeProduct;
-    private int idCategory;
-    private String imageUrlProduct;
+    private String id;
+    private String name;
+    private String category;
+    private double price;
+    private List<String> sizes;
+    private String imageUrl;
+    private String description; // Thêm mô tả sản phẩm
 
-
-    public ProductAdmin(){}
-
-    public ProductAdmin(int idProduct, String nameProduct, String priceProduct, List<String> sizeProduct, int idCategory, String imageUrlProduct) {
-        this.idProduct = idProduct;
-        this.nameProduct = nameProduct;
-        this.priceProduct = priceProduct;
-        this.sizeProduct = sizeProduct;
-        this.idCategory = idCategory;
-        this.imageUrlProduct = imageUrlProduct;
+    public ProductAdmin() {
+        // Constructor mặc định
     }
 
-    public int getIdProduct() {
-        return idProduct;
+    public ProductAdmin(String id, String name, String category, double price, List<String> sizes, String imageUrl, String description) {
+        this.id = id;
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.sizes = sizes;
+        this.imageUrl = imageUrl;
+        this.description = description;
     }
 
-    public void setIdProduct(int idProduct) {
-        this.idProduct = idProduct;
-    }
+    // Getter và Setter
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
-    public String getNameProduct() {
-        return nameProduct;
-    }
+    public String getName() { return name; }
+    public String getCategory() { return category; }
+    public double getPrice() { return price; }
+    public List<String> getSizes() { return sizes; }
+    public String getImageUrl() { return imageUrl; }
+    public String getDescription() { return description; } // Getter mô tả
 
-    public void setNameProduct(String nameProduct) {
-        this.nameProduct = nameProduct;
-    }
-
-    public String getPriceProduct() {
-        return priceProduct;
-    }
-
-    public void setPriceProduct(String priceProduct) {
-        this.priceProduct = priceProduct;
-    }
-
-    public List<String> getSizeProduct() {
-        return sizeProduct;
-    }
-
-    public void setSizeProduct(List<String> sizeProduct) {
-        this.sizeProduct = sizeProduct;
-    }
-
-    public int getIdCategory() {
-        return idCategory;
-    }
-
-    public void setIdCategory(int idCategory) {
-        this.idCategory = idCategory;
-    }
-
-    public String getImageUrlProduct() { // 🆕 Getter cho image
-        return imageUrlProduct;
-    }
-
-    public void setImageUrlProduct(String imageUrlProduct) { // 🆕 Setter cho image
-        this.imageUrlProduct = imageUrlProduct;
-    }
+    public void setDescription(String description) { this.description = description; } // Setter mô tả
 }
-

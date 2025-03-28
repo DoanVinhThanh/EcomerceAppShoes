@@ -1,32 +1,35 @@
 package com.example.nike.Activity.User;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.AppCompatButton;
 
-import com.example.nike.Adapter.ColorAdapter;
-import com.example.nike.Model.ProductColor;
+import com.bumptech.glide.Glide;
+import com.example.nike.FirebaseHelper;
+import com.example.nike.Model.ProductAdmin;
 import com.example.nike.R;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ProductDetailActivity extends AppCompatActivity {
-    private ImageView imgProduct;
-    private TextView tvProductPrice;
-    private RecyclerView recyclerViewColors;
-    private Button btnSelectSize;
-    private List<ProductColor> colorList;
-    private ColorAdapter colorAdapter;
+    private ImageView imgProduct, btnBack;
+    private TextView tvProductPrice, tvProductCategory, tvProductDescription,tvProductTitle;
+    private AppCompatButton btnSelectSize;
+
     private List<String> currentSizes = new ArrayList<>();
     private String selectedSize = "Select Size ▼";
+
+    private FirebaseHelper firebaseHelper;
+    private String productId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,30 +38,25 @@ public class ProductDetailActivity extends AppCompatActivity {
 
         imgProduct = findViewById(R.id.imgProduct);
         tvProductPrice = findViewById(R.id.tvProductPrice);
-        recyclerViewColors = findViewById(R.id.recycler_view_colors);
+        tvProductCategory = findViewById(R.id.tvProductCategory);
+        tvProductDescription = findViewById(R.id.tvProductDescription);
         btnSelectSize = findViewById(R.id.btnSelectSize);
+        btnBack = findViewById(R.id.btn_Back);
+        tvProductTitle = findViewById(R.id.tvProductTitle);
 
-        // Dữ liệu sản phẩm theo màu
-        colorList = new ArrayList<>();
-        colorList.add(new ProductColor(R.drawable.nike_airjordan1, "Blue", "3.239.000 đ",
-                Arrays.asList("Size 6", "Size 7", "Size 8", "Size 9")));
-        colorList.add(new ProductColor(R.drawable.nike_airforce1, "White", "3.100.000 đ",
-                Arrays.asList("Size 6", "Size 7", "Size 8")));
-        colorList.add(new ProductColor(R.drawable.nike_blazer, "Cyan", "3.500.000 đ",
-                Arrays.asList("Size 7", "Size 8", "Size 9", "Size 10")));
+        firebaseHelper = new FirebaseHelper();
+        productId = getIntent().getStringExtra("productId");
 
-        // Thiết lập RecyclerView
-        recyclerViewColors.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        colorAdapter = new ColorAdapter(this, colorList, color -> {
-            imgProduct.setImageResource(color.getImageResource());
-            tvProductPrice.setText(color.getPrice());
-            currentSizes = color.getSizes();
-            selectedSize = "Select Size ▼";
-            btnSelectSize.setText(selectedSize);
+        if (productId != null) {
+            loadProductDetails(productId);
+        }
+
+        btnBack.setOnClickListener(v -> {
+            Intent intent = new Intent(ProductDetailActivity.this, TrangChuActivity.class);
+            startActivity(intent);
+            finish();
         });
-        recyclerViewColors.setAdapter(colorAdapter);
 
-        // Xử lý chọn size
         btnSelectSize.setOnClickListener(v -> {
             if (currentSizes.isEmpty()) return;
             String[] sizesArray = currentSizes.toArray(new String[0]);
@@ -70,6 +68,21 @@ public class ProductDetailActivity extends AppCompatActivity {
                         btnSelectSize.setText(selectedSize);
                     })
                     .show();
+        });
+    }
+
+    private void loadProductDetails(String productId) {
+        firebaseHelper.getProductById(productId, product -> {
+            if (product != null) {
+                Glide.with(this).load(product.getImageUrl()).into(imgProduct);
+                tvProductTitle.setText(product.getCategory());
+                DecimalFormat decimalFormat = new DecimalFormat("#,### VNĐ");
+                tvProductPrice.setText(decimalFormat.format(product.getPrice()));
+                tvProductCategory.setText(product.getName());
+                tvProductDescription.setText(product.getDescription());
+
+                currentSizes = product.getSizes(); // Lưu sizes cho sản phẩm
+            }
         });
     }
 }
