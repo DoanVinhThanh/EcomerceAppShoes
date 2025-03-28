@@ -2,57 +2,59 @@ package com.example.nike.Activity.User;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.nike.DatabaseHelper;
-import com.example.nike.databinding.ActivityForgetPasswordBinding;
+import androidx.appcompat.widget.AppCompatButton;
+import com.example.nike.R;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class ForgetPasswordActivity extends AppCompatActivity {
-    ActivityForgetPasswordBinding binding;
-    DatabaseHelper databaseHelper;
-
-
+    private TextInputEditText forgotEmail;
+    private AppCompatButton btnForget;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding=ActivityForgetPasswordBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        databaseHelper=new DatabaseHelper(this);
-        binding.btnForget.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_forget_password);
+
+        forgotEmail = findViewById(R.id.forgot_email);
+        btnForget = findViewById(R.id.btn_forget);
+        mAuth = FirebaseAuth.getInstance();
+
+        btnForget.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                try {
-                    String email = binding.forgotEmail.getText().toString();
-                    String pass = binding.newPassword.getText().toString();
-                    String repass = binding.confirmPassword.getText().toString();
-                    if (email.equals("") || pass.equals("") || repass.equals("")) {
-                        Toast.makeText(ForgetPasswordActivity.this, "vui lòng điền thông tin", Toast.LENGTH_SHORT).show();
-                    } else {
-                        if (pass.equals(repass)) {
-                            int updatepass = databaseHelper.updatepass(email, pass);
-                            if (updatepass == 1) {
-                                binding.forgotEmail.setText("");
-                                binding.confirmPassword.setText("");
-                                Toast.makeText(ForgetPasswordActivity.this, "đồi mật khẩu thành công", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(ForgetPasswordActivity.this, SignInActivity.class);
-                                startActivity(intent);
-                                finish();
-                            } else {
-                                Toast.makeText(ForgetPasswordActivity.this, "tài khoản không tồn tại", Toast.LENGTH_SHORT).show();
-                            }
-                        } else {
-                            Toast.makeText(ForgetPasswordActivity.this, "Mật khẩu không trùng khớp", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }
-                catch (Exception e){
-                    Toast.makeText(ForgetPasswordActivity.this, "Out of bound"+e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
+            public void onClick(View v) {
+                resetPassword();
             }
         });
+    }
+
+    private void resetPassword() {
+        String email = forgotEmail.getText().toString().trim();
+
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(this, "Vui lòng nhập email", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        mAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(ForgetPasswordActivity.this,
+                                "Email đặt lại mật khẩu đã được gửi!",
+                                Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(ForgetPasswordActivity.this, SignInActivity.class));
+                        finish();
+                    } else {
+                        Toast.makeText(ForgetPasswordActivity.this,
+                                "Lỗi! Vui lòng kiểm tra email",
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
     }
 }

@@ -18,6 +18,7 @@ drawable background
 drawable background1
 drawable baseline_arrow_back_24
 drawable baseline_arrow_back_ios_24
+drawable baseline_arrow_back_ios_white
 drawable baseline_clear_24
 drawable baseline_favorite_24
 drawable baseline_favorite_border_24
@@ -98,6 +99,7 @@ drawable smooth_white
 drawable success
 drawable trash
 id CategoryProduct
+id back_white
 id btnAddCategory
 id btnAddProduct
 id btnAddToCart
@@ -141,7 +143,6 @@ id cart
 id category_admin_product
 id clear_icon
 id color_cart
-id confirm_password
 id drawer_layout
 id edit_profile
 id edtCategoryName
@@ -166,8 +167,6 @@ id imgItem
 id imgPreview
 id imgProduct
 id img_admin_product
-id layout_confirm_password
-id layout_new_password
 id linear_quantity_cart
 id login_email
 id login_password
@@ -183,7 +182,6 @@ id nav_order
 id nav_setting
 id nav_shop
 id nav_view
-id new_password
 id order_profile
 id price_admin_product
 id price_product
@@ -209,6 +207,7 @@ id signup_confirm
 id signup_email
 id signup_name
 id signup_password
+id signup_phone
 id signup_to_signin
 id size_admin_product
 id size_cart
@@ -227,7 +226,11 @@ id tvProductDescription
 id tvProductPrice
 id tvProductTitle
 id txtCategoryTitle
+id txtEmail
+id txtName
 id txtNoProducts
+id txtPhone
+id txtUsername
 id viewPagerOrder
 layout activity_add_edit_product
 layout activity_admin_trang_chu

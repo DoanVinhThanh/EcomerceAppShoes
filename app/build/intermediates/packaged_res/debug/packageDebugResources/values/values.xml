@@ -24,7 +24,7 @@
     <string name="project_id" translatable="false">doanltdd-62a1d</string>
     <style name="Base.Theme.Nike" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/bar</item>
-        
+
     </style>
     <style name="Theme.Nike" parent="Base.Theme.Nike"/>
 </resources>

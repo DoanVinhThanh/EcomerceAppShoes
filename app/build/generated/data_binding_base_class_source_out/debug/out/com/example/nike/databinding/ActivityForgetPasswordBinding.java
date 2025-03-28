@@ -13,7 +13,6 @@ import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.nike.R;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -32,34 +31,16 @@ public final class ActivityForgetPasswordBinding implements ViewBinding {
   public final TextView btnForgotSignup;
 
   @NonNull
-  public final TextInputEditText confirmPassword;
-
-  @NonNull
   public final TextInputEditText forgotEmail;
-
-  @NonNull
-  public final TextInputLayout layoutConfirmPassword;
-
-  @NonNull
-  public final TextInputLayout layoutNewPassword;
-
-  @NonNull
-  public final TextInputEditText newPassword;
 
   private ActivityForgetPasswordBinding(@NonNull LinearLayout rootView,
       @NonNull AppCompatButton btnForget, @NonNull TextView btnForgotSignin,
-      @NonNull TextView btnForgotSignup, @NonNull TextInputEditText confirmPassword,
-      @NonNull TextInputEditText forgotEmail, @NonNull TextInputLayout layoutConfirmPassword,
-      @NonNull TextInputLayout layoutNewPassword, @NonNull TextInputEditText newPassword) {
+      @NonNull TextView btnForgotSignup, @NonNull TextInputEditText forgotEmail) {
     this.rootView = rootView;
     this.btnForget = btnForget;
     this.btnForgotSignin = btnForgotSignin;
     this.btnForgotSignup = btnForgotSignup;
-    this.confirmPassword = confirmPassword;
     this.forgotEmail = forgotEmail;
-    this.layoutConfirmPassword = layoutConfirmPassword;
-    this.layoutNewPassword = layoutNewPassword;
-    this.newPassword = newPassword;
   }
 
   @Override
@@ -107,39 +88,14 @@ public final class ActivityForgetPasswordBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.confirm_password;
-      TextInputEditText confirmPassword = ViewBindings.findChildViewById(rootView, id);
-      if (confirmPassword == null) {
-        break missingId;
-      }
-
       id = R.id.forgot_email;
       TextInputEditText forgotEmail = ViewBindings.findChildViewById(rootView, id);
       if (forgotEmail == null) {
         break missingId;
       }
 
-      id = R.id.layout_confirm_password;
-      TextInputLayout layoutConfirmPassword = ViewBindings.findChildViewById(rootView, id);
-      if (layoutConfirmPassword == null) {
-        break missingId;
-      }
-
-      id = R.id.layout_new_password;
-      TextInputLayout layoutNewPassword = ViewBindings.findChildViewById(rootView, id);
-      if (layoutNewPassword == null) {
-        break missingId;
-      }
-
-      id = R.id.new_password;
-      TextInputEditText newPassword = ViewBindings.findChildViewById(rootView, id);
-      if (newPassword == null) {
-        break missingId;
-      }
-
       return new ActivityForgetPasswordBinding((LinearLayout) rootView, btnForget, btnForgotSignin,
-          btnForgotSignup, confirmPassword, forgotEmail, layoutConfirmPassword, layoutNewPassword,
-          newPassword);
+          btnForgotSignup, forgotEmail);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

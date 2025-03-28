@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -25,11 +26,24 @@ public final class NavHeaderBinding implements ViewBinding {
   @NonNull
   public final CircleImageView profileImage;
 
+  @NonNull
+  public final TextView txtEmail;
+
+  @NonNull
+  public final TextView txtName;
+
+  @NonNull
+  public final TextView txtPhone;
+
   private NavHeaderBinding(@NonNull LinearLayout rootView, @NonNull LinearLayout navHeader,
-      @NonNull CircleImageView profileImage) {
+      @NonNull CircleImageView profileImage, @NonNull TextView txtEmail, @NonNull TextView txtName,
+      @NonNull TextView txtPhone) {
     this.rootView = rootView;
     this.navHeader = navHeader;
     this.profileImage = profileImage;
+    this.txtEmail = txtEmail;
+    this.txtName = txtName;
+    this.txtPhone = txtPhone;
   }
 
   @Override
@@ -67,7 +81,26 @@ public final class NavHeaderBinding implements ViewBinding {
         break missingId;
       }
 
-      return new NavHeaderBinding((LinearLayout) rootView, navHeader, profileImage);
+      id = R.id.txtEmail;
+      TextView txtEmail = ViewBindings.findChildViewById(rootView, id);
+      if (txtEmail == null) {
+        break missingId;
+      }
+
+      id = R.id.txtName;
+      TextView txtName = ViewBindings.findChildViewById(rootView, id);
+      if (txtName == null) {
+        break missingId;
+      }
+
+      id = R.id.txtPhone;
+      TextView txtPhone = ViewBindings.findChildViewById(rootView, id);
+      if (txtPhone == null) {
+        break missingId;
+      }
+
+      return new NavHeaderBinding((LinearLayout) rootView, navHeader, profileImage, txtEmail,
+          txtName, txtPhone);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

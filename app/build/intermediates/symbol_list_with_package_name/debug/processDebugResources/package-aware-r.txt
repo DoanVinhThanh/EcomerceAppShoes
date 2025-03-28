@@ -3042,6 +3042,7 @@ drawable background
 drawable background1
 drawable baseline_arrow_back_24
 drawable baseline_arrow_back_ios_24
+drawable baseline_arrow_back_ios_white
 drawable baseline_clear_24
 drawable baseline_favorite_24
 drawable baseline_favorite_border_24
@@ -3344,6 +3345,7 @@ id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
 id axisRelative
+id back_white
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -3429,7 +3431,6 @@ id collapseActionView
 id color_cart
 id compress
 id confirm_button
-id confirm_password
 id constraint
 id container
 id content
@@ -3568,8 +3569,6 @@ id jumpToEnd
 id jumpToStart
 id labeled
 id layout
-id layout_confirm_password
-id layout_new_password
 id left
 id leftToRight
 id legacy
@@ -3664,7 +3663,6 @@ id navigation_header_container
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
-id new_password
 id noScroll
 id noState
 id none
@@ -3775,6 +3773,7 @@ id signup_confirm
 id signup_email
 id signup_name
 id signup_password
+id signup_phone
 id signup_to_signin
 id sin
 id size_admin_product
@@ -3874,7 +3873,11 @@ id tvProductDescription
 id tvProductPrice
 id tvProductTitle
 id txtCategoryTitle
+id txtEmail
+id txtName
 id txtNoProducts
+id txtPhone
+id txtUsername
 id unchecked
 id uniform
 id unlabeled

@@ -40,12 +40,16 @@ public final class ActivitySignUpBinding implements ViewBinding {
   public final TextInputEditText signupPassword;
 
   @NonNull
+  public final TextInputEditText signupPhone;
+
+  @NonNull
   public final TextView signupToSignin;
 
   private ActivitySignUpBinding(@NonNull LinearLayout rootView, @NonNull AppCompatButton btnSignUp,
       @NonNull TextInputEditText etBirthDate, @NonNull TextInputEditText signupConfirm,
       @NonNull TextInputEditText signupEmail, @NonNull TextInputEditText signupName,
-      @NonNull TextInputEditText signupPassword, @NonNull TextView signupToSignin) {
+      @NonNull TextInputEditText signupPassword, @NonNull TextInputEditText signupPhone,
+      @NonNull TextView signupToSignin) {
     this.rootView = rootView;
     this.btnSignUp = btnSignUp;
     this.etBirthDate = etBirthDate;
@@ -53,6 +57,7 @@ public final class ActivitySignUpBinding implements ViewBinding {
     this.signupEmail = signupEmail;
     this.signupName = signupName;
     this.signupPassword = signupPassword;
+    this.signupPhone = signupPhone;
     this.signupToSignin = signupToSignin;
   }
 
@@ -119,6 +124,12 @@ public final class ActivitySignUpBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.signup_phone;
+      TextInputEditText signupPhone = ViewBindings.findChildViewById(rootView, id);
+      if (signupPhone == null) {
+        break missingId;
+      }
+
       id = R.id.signup_to_signin;
       TextView signupToSignin = ViewBindings.findChildViewById(rootView, id);
       if (signupToSignin == null) {
@@ -126,7 +137,7 @@ public final class ActivitySignUpBinding implements ViewBinding {
       }
 
       return new ActivitySignUpBinding((LinearLayout) rootView, btnSignUp, etBirthDate,
-          signupConfirm, signupEmail, signupName, signupPassword, signupToSignin);
+          signupConfirm, signupEmail, signupName, signupPassword, signupPhone, signupToSignin);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
