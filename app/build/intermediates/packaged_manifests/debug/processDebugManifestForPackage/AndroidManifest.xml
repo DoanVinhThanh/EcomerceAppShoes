@@ -59,7 +59,7 @@
             android:name="com.example.nike.Activity.Admin.QuanLySanPhamActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.nike.Activity.User.SplashActivity"
+            android:name="com.example.nike.Activity.User.TrangChuActivity"
             android:exported="false" />
         <activity
             android:name="com.example.nike.Activity.Admin.AdminTrangChuActivity"
@@ -86,7 +86,7 @@
             android:name="com.example.nike.Activity.User.SearchActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.nike.Activity.User.TrangChuActivity"
+            android:name="com.example.nike.Activity.User.SplashActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

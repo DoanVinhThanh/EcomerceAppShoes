@@ -1,9 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.Nike" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/bar</item>
-
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowLightStatusBar">true</item> <!-- Chữ đen trên thanh trạng thái -->
     </style>
 
     <style name="Theme.Nike" parent="Base.Theme.Nike" />
 </resources>
+

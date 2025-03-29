@@ -107,7 +107,7 @@ public class TrangChuActivity extends AppCompatActivity implements NavigationVie
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        String title = "Home";
+        String title = "Trang chủ";
 
 
         if (id == R.id.nav_home) {

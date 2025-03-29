@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:background="@color/white">
 
         <!-- Thanh tiêu đề -->
         <RelativeLayout
@@ -57,7 +58,8 @@
             android:layout_height="wrap_content"
             android:text="Air Jordan 1 Low"
             android:textSize="22sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"/>
 
         <!-- Giá sản phẩm -->
         <TextView

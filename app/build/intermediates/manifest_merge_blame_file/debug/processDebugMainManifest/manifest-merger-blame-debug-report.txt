@@ -108,8 +108,8 @@
 60-->D:\Document\GitHub\EcomerceAppShoes\app\src\main\AndroidManifest.xml:41:13-37
 61        <activity
 61-->D:\Document\GitHub\EcomerceAppShoes\app\src\main\AndroidManifest.xml:42:9-44:40
-62            android:name="com.example.nike.Activity.User.SplashActivity"
-62-->D:\Document\GitHub\EcomerceAppShoes\app\src\main\AndroidManifest.xml:43:13-57
+62            android:name="com.example.nike.Activity.User.TrangChuActivity"
+62-->D:\Document\GitHub\EcomerceAppShoes\app\src\main\AndroidManifest.xml:43:13-59
 63            android:exported="false" />
 63-->D:\Document\GitHub\EcomerceAppShoes\app\src\main\AndroidManifest.xml:44:13-37
 64        <activity
@@ -162,8 +162,8 @@
 87-->D:\Document\GitHub\EcomerceAppShoes\app\src\main\AndroidManifest.xml:68:13-37
 88        <activity
 88-->D:\Document\GitHub\EcomerceAppShoes\app\src\main\AndroidManifest.xml:69:9-77:20
-89            android:name="com.example.nike.Activity.User.TrangChuActivity"
-89-->D:\Document\GitHub\EcomerceAppShoes\app\src\main\AndroidManifest.xml:70:13-59
+89            android:name="com.example.nike.Activity.User.SplashActivity"
+89-->D:\Document\GitHub\EcomerceAppShoes\app\src\main\AndroidManifest.xml:70:13-57
 90            android:exported="true" >
 90-->D:\Document\GitHub\EcomerceAppShoes\app\src\main\AndroidManifest.xml:71:13-36
 91            <intent-filter>
