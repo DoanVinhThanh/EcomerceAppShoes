@@ -3394,6 +3394,7 @@ id btn_forgot_signin
 id btn_forgot_signup
 id btn_quan_ly_danh_muc
 id btn_quan_ly_san_pham
+id btn_save
 id btn_search_to_home
 id btn_setting_shop_to_home
 id btn_sign_in
@@ -3485,6 +3486,9 @@ id edit_profile
 id edit_query
 id edit_text_id
 id edtCategoryName
+id edt_dob
+id edt_name
+id edt_phone
 id elastic
 id embed
 id empty_img_cart
@@ -3872,6 +3876,7 @@ id tvProductCategory
 id tvProductDescription
 id tvProductPrice
 id tvProductTitle
+id tv_change_image
 id txtCategoryTitle
 id txtEmail
 id txtName

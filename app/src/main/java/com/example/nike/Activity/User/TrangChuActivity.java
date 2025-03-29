@@ -67,6 +67,11 @@ public class TrangChuActivity extends AppCompatActivity implements NavigationVie
 
 
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadUserInfo();  // Gọi lại khi quay lại màn hình
+    }
     private void loadUserInfo() {
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {

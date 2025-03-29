@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.bumptech.glide.Glide;
 import com.example.nike.R;
@@ -20,7 +21,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class ProfileActivity extends AppCompatActivity {
 
     private TextView txtUsername;
-    private ImageView profileImage,backwhite;
+    private ImageView profileImage;
+    private AppCompatButton editprofile;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
@@ -31,7 +33,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         txtUsername = findViewById(R.id.txtUsername);
         profileImage = findViewById(R.id.profile_image);
-        backwhite = findViewById(R.id.back_white);
+        editprofile = findViewById(R.id.edit_profile);
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -39,14 +41,20 @@ public class ProfileActivity extends AppCompatActivity {
 
         loadUserProfile();
 
-        backwhite.setOnClickListener(new View.OnClickListener() {
+        editprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProfileActivity.this,TrangChuActivity.class);
+                Intent intent = new Intent(ProfileActivity.this,EditProfile.class);
                 startActivity(intent );
                 finish();
             }
         });
+
+    }
+     @Override
+    protected void onResume() {
+        super.onResume();
+        loadUserProfile();  // Gọi lại khi quay lại màn hình
     }
 
     private void loadUserProfile() {
@@ -58,7 +66,7 @@ public class ProfileActivity extends AppCompatActivity {
                     .addOnSuccessListener(documentSnapshot -> {
                         if (documentSnapshot.exists()) {
                             String username = documentSnapshot.getString("name");
-                            String imageUrl = documentSnapshot.getString("imageUrl");
+                            String imageUrl = documentSnapshot.getString("avatar");
 
                             txtUsername.setText(username != null ? username : "Tên chưa cập nhật");
 
@@ -76,5 +84,4 @@ public class ProfileActivity extends AppCompatActivity {
                             Toast.makeText(ProfileActivity.this, "Lỗi tải dữ liệu!", Toast.LENGTH_SHORT).show());
         }
     }
-
 }

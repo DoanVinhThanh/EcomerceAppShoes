@@ -4,7 +4,7 @@
             "outputFile": "com.example.nike.app-mergeDebugResources-41:/values-large-v4/values-large-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\admin\\.gradle\\caches\\8.10.2\\transforms\\040d30fafba0c5e5240fa4d8f83e0258\\transformed\\appcompat-1.7.0\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\8.10.2\\transforms\\040d30fafba0c5e5240fa4d8f83e0258\\transformed\\appcompat-1.7.0\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\admin\\.gradle\\caches\\8.10.2\\transforms\\62d696b2524ff3d37d6631da8d8aca20\\transformed\\material-1.12.0\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\8.10.2\\transforms\\62d696b2524ff3d37d6631da8d8aca20\\transformed\\material-1.12.0\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
