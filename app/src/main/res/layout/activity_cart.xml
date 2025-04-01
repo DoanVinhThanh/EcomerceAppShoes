@@ -78,10 +78,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Subtoal"
+                        android:text="Tạm tính"
                         android:layout_weight="1"/>
 
                     <TextView
+                        android:id="@+id/total_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1.000.000"/>
@@ -95,10 +96,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Shipping"
+                        android:text="Phí vận chuyển"
                         android:layout_weight="1"/>
 
                     <TextView
+                        android:id="@+id/shipping_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1.000.000"/>
@@ -110,13 +112,15 @@
                     android:padding="8dp">
 
                     <TextView
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Estimated total"
+                        android:text="Số tiền phải thanh toán"
                         android:textStyle="bold"
                         android:layout_weight="1"/>
 
                     <TextView
+                        android:id="@+id/estimated_total"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1.000.000"
@@ -129,6 +133,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/lin_empty_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -137,13 +142,11 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/empty_img_cart"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:src="@drawable/shopping_bag" />
 
         <TextView
-            android:id="@+id/empty_msg_cart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

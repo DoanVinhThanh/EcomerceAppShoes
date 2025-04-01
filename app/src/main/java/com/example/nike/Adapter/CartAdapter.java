@@ -3,92 +3,113 @@ package com.example.nike.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.nike.Model.Product;
+import com.bumptech.glide.Glide;
+import com.example.nike.Model.CartItem;
 import com.example.nike.R;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
-public class CartAdapter extends RecyclerView.Adapter<CartAdapter.VHcart> {
-    private List<Product> products;
+public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
+    private List<CartItem> cartItemList;
+    private OnQuantityChangedListener quantityChangedListener;
 
-    public CartAdapter(List<Product> products) {
-        this.products = products;
+    public CartAdapter(List<CartItem> cartItemList) {
+        this.cartItemList = cartItemList;
+    }
+
+    // Interface để thông báo khi số lượng thay đổi
+    public interface OnQuantityChangedListener {
+        void onQuantityChanged();
+    }
+
+    public void setOnQuantityChangedListener(OnQuantityChangedListener listener) {
+        this.quantityChangedListener = listener;
     }
 
     @NonNull
     @Override
-    public VHcart onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cart, parent, false);
-        return new VHcart(view);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_cart, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull VHcart holder, int position) {
-        Product cartProduct = products.get(position);
-        holder.imageView.setImageResource(cartProduct.getImageResIdNewProduct());
-        holder.textView.setText(cartProduct.getNameNewProduct());
-        holder.Quantity_cart.setText("1");
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        CartItem item = cartItemList.get(position);
 
-        holder.lin_quantity_cart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(holder.itemView.getContext());
-                View bottomSheetView = LayoutInflater.from(holder.itemView.getContext())
-                        .inflate(R.layout.bottom_sheet_quality, (ViewGroup) v.getParent(), false);
+        holder.productName.setText(item.getProductName());
+        holder.size.setText("Size: " + item.getSize());
+        holder.quantity.setText(String.valueOf(item.getQuantity()));
+        holder.price.setText(String.format("%,.0f VNĐ", item.getPrice()));
+        Glide.with(holder.itemView.getContext())
+                .load(item.getImageUrl())
+                .into(holder.imageView);
 
-                ListView listView = bottomSheetView.findViewById(R.id.quantity_list);
-                final String[] quantities = {"Remove","1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(holder.itemView.getContext(),
-                        android.R.layout.simple_list_item_1, quantities);
-                listView.setAdapter(adapter);
+        // Tính giá cho từng item (price * quantity)
+        double itemTotal = item.getPrice() * item.getQuantity();
+        holder.itemTotal.setText(String.format("%,.0f VNĐ", itemTotal));
 
-                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        String selectedQuantity = quantities[position];
-                        if ("Remove".equals(selectedQuantity)) {
+        // Xử lý tăng số lượng
+        holder.btnIncrease.setOnClickListener(v -> {
+            int newQuantity = item.getQuantity() + 1;
+            updateQuantityInFirestore(item, newQuantity, position);
+        });
 
-                            Toast.makeText(holder.itemView.getContext(), "Sản phẩm đã được xóa khỏi giỏ hàng", Toast.LENGTH_SHORT).show();
-                        } else {
-                            holder.Quantity_cart.setText(selectedQuantity);
-                        }
-                        bottomSheetDialog.dismiss();
-                    }
-                });
-                bottomSheetDialog.setContentView(bottomSheetView);
-                bottomSheetDialog.show();
+        // Xử lý giảm số lượng
+        holder.btnDecrease.setOnClickListener(v -> {
+            int newQuantity = item.getQuantity() - 1;
+            if (newQuantity >= 1) { // Không cho phép nhỏ hơn 1
+                updateQuantityInFirestore(item, newQuantity, position);
             }
         });
     }
 
-    @Override
-    public int getItemCount() {
-        return products.size();
+    private void updateQuantityInFirestore(CartItem item, int newQuantity, int position) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("cart")
+                .document(item.getId())
+                .update("quantity", newQuantity)
+                .addOnSuccessListener(aVoid -> {
+                    item.setQuantity(newQuantity);
+                    notifyItemChanged(position);
+                    if (quantityChangedListener != null) {
+                        quantityChangedListener.onQuantityChanged();
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    // Xử lý lỗi nếu cần
+                });
     }
 
-    public static class VHcart extends RecyclerView.ViewHolder {
-        ImageView imageView;
-        TextView textView, Quantity_cart;
-        LinearLayout lin_quantity_cart;
+    @Override
+    public int getItemCount() {
+        return cartItemList.size();
+    }
 
-        public VHcart(@NonNull View itemView) {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageView;
+        TextView productName, size, quantity, price, itemTotal;
+        ImageView btnIncrease, btnDecrease;
+
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.image_cart);
-            textView = itemView.findViewById(R.id.name_cart);
-            Quantity_cart = itemView.findViewById(R.id.quantity_cart);
-            lin_quantity_cart = itemView.findViewById(R.id.linear_quantity_cart);
+            productName = itemView.findViewById(R.id.name_cart);
+            size = itemView.findViewById(R.id.size_cart);
+            quantity = itemView.findViewById(R.id.quantity_cart);
+            price = itemView.findViewById(R.id.price_cart);
+            itemTotal = itemView.findViewById(R.id.total_cart); // Thêm TextView cho tổng tiền từng item
+            btnIncrease = itemView.findViewById(R.id.btn_increase);
+            btnDecrease = itemView.findViewById(R.id.btn_decrease);
         }
     }
 }

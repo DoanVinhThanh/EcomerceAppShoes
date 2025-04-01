@@ -12,10 +12,10 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nike.Adapter.ProductAdapter;
-import com.example.nike.Model.Product;
 import com.example.nike.Model.ProductAdmin;
 import com.example.nike.R;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class SearchProductActivity extends AppCompatActivity {
     private RecyclerView recyclerViewProducts;
     private ProductAdapter productAdapter;
     private List<ProductAdmin> productList;
-    private String categoryName;
+    private String searchQuery;
     private TextView txtCategoryTitle;
     private FirebaseFirestore db;
     LinearLayout btnSearchToHome;
@@ -41,58 +41,59 @@ public class SearchProductActivity extends AppCompatActivity {
         txtNoProducts = findViewById(R.id.txtNoProducts);
         btnSearchToHome = findViewById(R.id.btn_search_to_home);
 
-
         // Khởi tạo Firestore và danh sách sản phẩm
         db = FirebaseFirestore.getInstance();
         productList = new ArrayList<>();
 
-        // Lấy dữ liệu từ Intent
-        categoryName = getIntent().getStringExtra("category_name");
-        if (categoryName != null) {
-            txtCategoryTitle.setText("Tìm kiếm: " + categoryName);
+        // Nhận từ khóa tìm kiếm từ Intent
+        searchQuery = getIntent().getStringExtra("search_query");
+
+        if (searchQuery != null && !searchQuery.isEmpty()) {
+            txtCategoryTitle.setText("Kết quả tìm kiếm: " + searchQuery);
         } else {
-            txtCategoryTitle.setText("Tìm kiếm");
+            txtCategoryTitle.setText("Kết quả tìm kiếm");
         }
 
         // Cấu hình RecyclerView với GridLayout (2 cột)
         recyclerViewProducts.setLayoutManager(new GridLayoutManager(this, 2));
-        productAdapter = new ProductAdapter(this,productList);
+        productAdapter = new ProductAdapter(this, productList);
         recyclerViewProducts.setAdapter(productAdapter);
 
-        // Tải sản phẩm từ Firestore theo tên danh mục
-        loadProductsByCategory(categoryName);
-        btnSearchToHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SearchProductActivity.this, TrangChuActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        // Tìm kiếm sản phẩm từ Firestore theo danh mục hoặc tên
+        searchProducts(searchQuery);
+
+        btnSearchToHome.setOnClickListener(v -> {
+            Intent intent = new Intent(SearchProductActivity.this, TrangChuActivity.class);
+            startActivity(intent);
+            finish();
         });
     }
 
-    private void loadProductsByCategory(String categoryName) {
-        db.collection("products")
-                .whereEqualTo("category", categoryName)
-                .get()
-                .addOnSuccessListener(querySnapshot -> {
-                    productList.clear();
-                    for (QueryDocumentSnapshot document : querySnapshot) {
-                        ProductAdmin product = document.toObject(ProductAdmin.class);
-                        productList.add(product);
-                    }
+    private void searchProducts(String query) {
+        Query firestoreQuery = db.collection("products");
 
-                    if (productList.isEmpty()) {
-                        txtNoProducts.setVisibility(View.VISIBLE); // Hiển thị thông báo
-                        recyclerViewProducts.setVisibility(View.GONE); // Ẩn RecyclerView
-                    } else {
-                        txtNoProducts.setVisibility(View.GONE); // Ẩn thông báo
-                        recyclerViewProducts.setVisibility(View.VISIBLE); // Hiển thị danh sách
-                        productAdapter.notifyDataSetChanged();
-                    }
-                })
-                .addOnFailureListener(e -> {
-                    Toast.makeText(this, "Lỗi khi tải sản phẩm: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                });
+        if (query != null && !query.isEmpty()) {
+            firestoreQuery = firestoreQuery.whereGreaterThanOrEqualTo("name", query)
+                    .whereLessThanOrEqualTo("name", query + "\uf8ff");
+        }
+
+        firestoreQuery.get().addOnSuccessListener(querySnapshot -> {
+            productList.clear();
+            for (QueryDocumentSnapshot document : querySnapshot) {
+                ProductAdmin product = document.toObject(ProductAdmin.class);
+                productList.add(product);
+            }
+
+            if (productList.isEmpty()) {
+                txtNoProducts.setVisibility(View.VISIBLE);
+                recyclerViewProducts.setVisibility(View.GONE);
+            } else {
+                txtNoProducts.setVisibility(View.GONE);
+                recyclerViewProducts.setVisibility(View.VISIBLE);
+                productAdapter.notifyDataSetChanged();
+            }
+        }).addOnFailureListener(e -> {
+            Toast.makeText(this, "Lỗi khi tải sản phẩm: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        });
     }
 }

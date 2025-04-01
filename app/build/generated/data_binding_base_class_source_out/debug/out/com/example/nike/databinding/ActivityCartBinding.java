@@ -4,7 +4,6 @@ package com.example.nike.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -33,29 +32,38 @@ public final class ActivityCartBinding implements ViewBinding {
   public final AppCompatButton btnShopnowCart;
 
   @NonNull
-  public final ImageView emptyImgCart;
+  public final TextView estimatedTotal;
 
   @NonNull
-  public final TextView emptyMsgCart;
+  public final LinearLayout linEmptyLayout;
 
   @NonNull
   public final RecyclerView recyclerViewCart;
 
   @NonNull
+  public final TextView shippingPrice;
+
+  @NonNull
   public final LinearLayout totalCart;
+
+  @NonNull
+  public final TextView totalPrice;
 
   private ActivityCartBinding(@NonNull RelativeLayout rootView, @NonNull LinearLayout btnBagToHome,
       @NonNull AppCompatButton btnCheckOut, @NonNull AppCompatButton btnShopnowCart,
-      @NonNull ImageView emptyImgCart, @NonNull TextView emptyMsgCart,
-      @NonNull RecyclerView recyclerViewCart, @NonNull LinearLayout totalCart) {
+      @NonNull TextView estimatedTotal, @NonNull LinearLayout linEmptyLayout,
+      @NonNull RecyclerView recyclerViewCart, @NonNull TextView shippingPrice,
+      @NonNull LinearLayout totalCart, @NonNull TextView totalPrice) {
     this.rootView = rootView;
     this.btnBagToHome = btnBagToHome;
     this.btnCheckOut = btnCheckOut;
     this.btnShopnowCart = btnShopnowCart;
-    this.emptyImgCart = emptyImgCart;
-    this.emptyMsgCart = emptyMsgCart;
+    this.estimatedTotal = estimatedTotal;
+    this.linEmptyLayout = linEmptyLayout;
     this.recyclerViewCart = recyclerViewCart;
+    this.shippingPrice = shippingPrice;
     this.totalCart = totalCart;
+    this.totalPrice = totalPrice;
   }
 
   @Override
@@ -103,15 +111,15 @@ public final class ActivityCartBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.empty_img_cart;
-      ImageView emptyImgCart = ViewBindings.findChildViewById(rootView, id);
-      if (emptyImgCart == null) {
+      id = R.id.estimated_total;
+      TextView estimatedTotal = ViewBindings.findChildViewById(rootView, id);
+      if (estimatedTotal == null) {
         break missingId;
       }
 
-      id = R.id.empty_msg_cart;
-      TextView emptyMsgCart = ViewBindings.findChildViewById(rootView, id);
-      if (emptyMsgCart == null) {
+      id = R.id.lin_empty_layout;
+      LinearLayout linEmptyLayout = ViewBindings.findChildViewById(rootView, id);
+      if (linEmptyLayout == null) {
         break missingId;
       }
 
@@ -121,14 +129,27 @@ public final class ActivityCartBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.shipping_price;
+      TextView shippingPrice = ViewBindings.findChildViewById(rootView, id);
+      if (shippingPrice == null) {
+        break missingId;
+      }
+
       id = R.id.total_cart;
       LinearLayout totalCart = ViewBindings.findChildViewById(rootView, id);
       if (totalCart == null) {
         break missingId;
       }
 
+      id = R.id.total_price;
+      TextView totalPrice = ViewBindings.findChildViewById(rootView, id);
+      if (totalPrice == null) {
+        break missingId;
+      }
+
       return new ActivityCartBinding((RelativeLayout) rootView, btnBagToHome, btnCheckOut,
-          btnShopnowCart, emptyImgCart, emptyMsgCart, recyclerViewCart, totalCart);
+          btnShopnowCart, estimatedTotal, linEmptyLayout, recyclerViewCart, shippingPrice,
+          totalCart, totalPrice);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

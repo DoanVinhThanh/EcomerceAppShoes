@@ -97,7 +97,7 @@ public final class ActivityProductDetailBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btnAddToCart;
+      id = R.id.btn_AddToCart;
       AppCompatButton btnAddToCart = ViewBindings.findChildViewById(rootView, id);
       if (btnAddToCart == null) {
         break missingId;

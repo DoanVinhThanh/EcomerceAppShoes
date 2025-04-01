@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.nike.R;
@@ -23,31 +24,26 @@ public final class ActivityProfileBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final ImageView backWhite;
+  public final Toolbar backHome;
 
   @NonNull
   public final AppCompatButton editProfile;
 
   @NonNull
-  public final LinearLayout orderProfile;
-
-  @NonNull
   public final CircleImageView profileImage;
 
   @NonNull
-  public final LinearLayout settingsProfile;
+  public final ImageView settingsProfile;
 
   @NonNull
   public final TextView txtUsername;
 
-  private ActivityProfileBinding(@NonNull LinearLayout rootView, @NonNull ImageView backWhite,
-      @NonNull AppCompatButton editProfile, @NonNull LinearLayout orderProfile,
-      @NonNull CircleImageView profileImage, @NonNull LinearLayout settingsProfile,
-      @NonNull TextView txtUsername) {
+  private ActivityProfileBinding(@NonNull LinearLayout rootView, @NonNull Toolbar backHome,
+      @NonNull AppCompatButton editProfile, @NonNull CircleImageView profileImage,
+      @NonNull ImageView settingsProfile, @NonNull TextView txtUsername) {
     this.rootView = rootView;
-    this.backWhite = backWhite;
+    this.backHome = backHome;
     this.editProfile = editProfile;
-    this.orderProfile = orderProfile;
     this.profileImage = profileImage;
     this.settingsProfile = settingsProfile;
     this.txtUsername = txtUsername;
@@ -80,21 +76,15 @@ public final class ActivityProfileBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.back_white;
-      ImageView backWhite = ViewBindings.findChildViewById(rootView, id);
-      if (backWhite == null) {
+      id = R.id.back_home;
+      Toolbar backHome = ViewBindings.findChildViewById(rootView, id);
+      if (backHome == null) {
         break missingId;
       }
 
       id = R.id.edit_profile;
       AppCompatButton editProfile = ViewBindings.findChildViewById(rootView, id);
       if (editProfile == null) {
-        break missingId;
-      }
-
-      id = R.id.order_profile;
-      LinearLayout orderProfile = ViewBindings.findChildViewById(rootView, id);
-      if (orderProfile == null) {
         break missingId;
       }
 
@@ -105,7 +95,7 @@ public final class ActivityProfileBinding implements ViewBinding {
       }
 
       id = R.id.settings_profile;
-      LinearLayout settingsProfile = ViewBindings.findChildViewById(rootView, id);
+      ImageView settingsProfile = ViewBindings.findChildViewById(rootView, id);
       if (settingsProfile == null) {
         break missingId;
       }
@@ -116,8 +106,8 @@ public final class ActivityProfileBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityProfileBinding((LinearLayout) rootView, backWhite, editProfile,
-          orderProfile, profileImage, settingsProfile, txtUsername);
+      return new ActivityProfileBinding((LinearLayout) rootView, backHome, editProfile,
+          profileImage, settingsProfile, txtUsername);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

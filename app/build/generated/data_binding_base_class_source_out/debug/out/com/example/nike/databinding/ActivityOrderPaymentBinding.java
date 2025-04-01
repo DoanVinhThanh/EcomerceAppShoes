@@ -4,10 +4,15 @@ package com.example.nike.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.nike.R;
@@ -20,21 +25,82 @@ public final class ActivityOrderPaymentBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final TextView addressShip;
+
+  @NonNull
+  public final AppCompatButton btnApplyDiscount;
+
+  @NonNull
+  public final AppCompatButton btnChangeAddress;
+
+  @NonNull
   public final LinearLayout btnSettingShopToHome;
 
   @NonNull
-  public final Button btnThanhToan;
+  public final AppCompatButton btnThanhToan;
+
+  @NonNull
+  public final TextView discpuntOrder;
+
+  @NonNull
+  public final EditText edtDiscount;
+
+  @NonNull
+  public final TextView estimatedOrder;
 
   @NonNull
   public final LinearLayout main;
 
-  private ActivityOrderPaymentBinding(@NonNull LinearLayout rootView,
-      @NonNull LinearLayout btnSettingShopToHome, @NonNull Button btnThanhToan,
-      @NonNull LinearLayout main) {
+  @NonNull
+  public final TextView nameShip;
+
+  @NonNull
+  public final TextView phoneShip;
+
+  @NonNull
+  public final RadioButton rbCod;
+
+  @NonNull
+  public final RadioButton rbPaypal;
+
+  @NonNull
+  public final RecyclerView recyclerViewOrder;
+
+  @NonNull
+  public final RadioGroup rgPaymentMethod;
+
+  @NonNull
+  public final TextView shippingOrder;
+
+  @NonNull
+  public final TextView suntotalOrder;
+
+  private ActivityOrderPaymentBinding(@NonNull LinearLayout rootView, @NonNull TextView addressShip,
+      @NonNull AppCompatButton btnApplyDiscount, @NonNull AppCompatButton btnChangeAddress,
+      @NonNull LinearLayout btnSettingShopToHome, @NonNull AppCompatButton btnThanhToan,
+      @NonNull TextView discpuntOrder, @NonNull EditText edtDiscount,
+      @NonNull TextView estimatedOrder, @NonNull LinearLayout main, @NonNull TextView nameShip,
+      @NonNull TextView phoneShip, @NonNull RadioButton rbCod, @NonNull RadioButton rbPaypal,
+      @NonNull RecyclerView recyclerViewOrder, @NonNull RadioGroup rgPaymentMethod,
+      @NonNull TextView shippingOrder, @NonNull TextView suntotalOrder) {
     this.rootView = rootView;
+    this.addressShip = addressShip;
+    this.btnApplyDiscount = btnApplyDiscount;
+    this.btnChangeAddress = btnChangeAddress;
     this.btnSettingShopToHome = btnSettingShopToHome;
     this.btnThanhToan = btnThanhToan;
+    this.discpuntOrder = discpuntOrder;
+    this.edtDiscount = edtDiscount;
+    this.estimatedOrder = estimatedOrder;
     this.main = main;
+    this.nameShip = nameShip;
+    this.phoneShip = phoneShip;
+    this.rbCod = rbCod;
+    this.rbPaypal = rbPaypal;
+    this.recyclerViewOrder = recyclerViewOrder;
+    this.rgPaymentMethod = rgPaymentMethod;
+    this.shippingOrder = shippingOrder;
+    this.suntotalOrder = suntotalOrder;
   }
 
   @Override
@@ -64,6 +130,24 @@ public final class ActivityOrderPaymentBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.address_ship;
+      TextView addressShip = ViewBindings.findChildViewById(rootView, id);
+      if (addressShip == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_apply_discount;
+      AppCompatButton btnApplyDiscount = ViewBindings.findChildViewById(rootView, id);
+      if (btnApplyDiscount == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_change_address;
+      AppCompatButton btnChangeAddress = ViewBindings.findChildViewById(rootView, id);
+      if (btnChangeAddress == null) {
+        break missingId;
+      }
+
       id = R.id.btn_setting_shop_to_home;
       LinearLayout btnSettingShopToHome = ViewBindings.findChildViewById(rootView, id);
       if (btnSettingShopToHome == null) {
@@ -71,15 +155,83 @@ public final class ActivityOrderPaymentBinding implements ViewBinding {
       }
 
       id = R.id.btn_Thanh_Toan;
-      Button btnThanhToan = ViewBindings.findChildViewById(rootView, id);
+      AppCompatButton btnThanhToan = ViewBindings.findChildViewById(rootView, id);
       if (btnThanhToan == null) {
+        break missingId;
+      }
+
+      id = R.id.discpunt_order;
+      TextView discpuntOrder = ViewBindings.findChildViewById(rootView, id);
+      if (discpuntOrder == null) {
+        break missingId;
+      }
+
+      id = R.id.edt_discount;
+      EditText edtDiscount = ViewBindings.findChildViewById(rootView, id);
+      if (edtDiscount == null) {
+        break missingId;
+      }
+
+      id = R.id.estimated_order;
+      TextView estimatedOrder = ViewBindings.findChildViewById(rootView, id);
+      if (estimatedOrder == null) {
         break missingId;
       }
 
       LinearLayout main = (LinearLayout) rootView;
 
-      return new ActivityOrderPaymentBinding((LinearLayout) rootView, btnSettingShopToHome,
-          btnThanhToan, main);
+      id = R.id.name_ship;
+      TextView nameShip = ViewBindings.findChildViewById(rootView, id);
+      if (nameShip == null) {
+        break missingId;
+      }
+
+      id = R.id.phone_ship;
+      TextView phoneShip = ViewBindings.findChildViewById(rootView, id);
+      if (phoneShip == null) {
+        break missingId;
+      }
+
+      id = R.id.rb_cod;
+      RadioButton rbCod = ViewBindings.findChildViewById(rootView, id);
+      if (rbCod == null) {
+        break missingId;
+      }
+
+      id = R.id.rb_paypal;
+      RadioButton rbPaypal = ViewBindings.findChildViewById(rootView, id);
+      if (rbPaypal == null) {
+        break missingId;
+      }
+
+      id = R.id.recycler_view_order;
+      RecyclerView recyclerViewOrder = ViewBindings.findChildViewById(rootView, id);
+      if (recyclerViewOrder == null) {
+        break missingId;
+      }
+
+      id = R.id.rg_payment_method;
+      RadioGroup rgPaymentMethod = ViewBindings.findChildViewById(rootView, id);
+      if (rgPaymentMethod == null) {
+        break missingId;
+      }
+
+      id = R.id.shipping_order;
+      TextView shippingOrder = ViewBindings.findChildViewById(rootView, id);
+      if (shippingOrder == null) {
+        break missingId;
+      }
+
+      id = R.id.suntotal_order;
+      TextView suntotalOrder = ViewBindings.findChildViewById(rootView, id);
+      if (suntotalOrder == null) {
+        break missingId;
+      }
+
+      return new ActivityOrderPaymentBinding((LinearLayout) rootView, addressShip, btnApplyDiscount,
+          btnChangeAddress, btnSettingShopToHome, btnThanhToan, discpuntOrder, edtDiscount,
+          estimatedOrder, main, nameShip, phoneShip, rbCod, rbPaypal, recyclerViewOrder,
+          rgPaymentMethod, shippingOrder, suntotalOrder);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

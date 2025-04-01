@@ -32,6 +32,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.Nike" >
         <activity
+            android:name="com.example.nike.Activity.User.ShippingAddressActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.nike.Activity.User.EditProfile"
             android:exported="false" />
         <activity

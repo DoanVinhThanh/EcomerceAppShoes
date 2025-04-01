@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -25,18 +26,22 @@ public final class FragmentFavoriteBinding implements ViewBinding {
   public final ImageView emptyImgFavorite;
 
   @NonNull
+  public final LinearLayout emptyLayout;
+
+  @NonNull
   public final TextView emptyMsgFavorite;
 
   @NonNull
-  public final RecyclerView recyclerViewFavorite;
+  public final RecyclerView recyclerFavorite;
 
   private FragmentFavoriteBinding(@NonNull RelativeLayout rootView,
-      @NonNull ImageView emptyImgFavorite, @NonNull TextView emptyMsgFavorite,
-      @NonNull RecyclerView recyclerViewFavorite) {
+      @NonNull ImageView emptyImgFavorite, @NonNull LinearLayout emptyLayout,
+      @NonNull TextView emptyMsgFavorite, @NonNull RecyclerView recyclerFavorite) {
     this.rootView = rootView;
     this.emptyImgFavorite = emptyImgFavorite;
+    this.emptyLayout = emptyLayout;
     this.emptyMsgFavorite = emptyMsgFavorite;
-    this.recyclerViewFavorite = recyclerViewFavorite;
+    this.recyclerFavorite = recyclerFavorite;
   }
 
   @Override
@@ -72,20 +77,26 @@ public final class FragmentFavoriteBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.empty_layout;
+      LinearLayout emptyLayout = ViewBindings.findChildViewById(rootView, id);
+      if (emptyLayout == null) {
+        break missingId;
+      }
+
       id = R.id.empty_msg_favorite;
       TextView emptyMsgFavorite = ViewBindings.findChildViewById(rootView, id);
       if (emptyMsgFavorite == null) {
         break missingId;
       }
 
-      id = R.id.recycler_view_favorite;
-      RecyclerView recyclerViewFavorite = ViewBindings.findChildViewById(rootView, id);
-      if (recyclerViewFavorite == null) {
+      id = R.id.recycler_favorite;
+      RecyclerView recyclerFavorite = ViewBindings.findChildViewById(rootView, id);
+      if (recyclerFavorite == null) {
         break missingId;
       }
 
-      return new FragmentFavoriteBinding((RelativeLayout) rootView, emptyImgFavorite,
-          emptyMsgFavorite, recyclerViewFavorite);
+      return new FragmentFavoriteBinding((RelativeLayout) rootView, emptyImgFavorite, emptyLayout,
+          emptyMsgFavorite, recyclerFavorite);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

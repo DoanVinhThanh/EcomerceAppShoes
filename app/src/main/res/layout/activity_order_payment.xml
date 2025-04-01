@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OrdersPayment"
+    tools:context=".Activity.User.SuccessPaymentActivity"
     android:orientation="vertical">
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -45,56 +45,11 @@
         android:padding="16dp">
 
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_order"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="200dp"/>
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/nike_air" />
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="16dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nike Air Max AP CU4826"
-                    android:textStyle="bold"
-                    android:textSize="15dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Color Pink Size 41"
-                    />
-
-
-
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Số lượng: 1"
-                />
-            <TextView
-                android:text="2,500,000 VND"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:gravity="end"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -108,6 +63,7 @@
             android:orientation="horizontal">
 
             <EditText
+                android:id="@+id/edt_discount"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -116,7 +72,8 @@
                 android:hint="Nhập mã giảm giá vào đây"
                 android:paddingLeft="10dp" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_apply_discount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -148,6 +105,7 @@
                     android:textSize="15dp"/>
 
                 <TextView
+                    android:id="@+id/suntotal_order"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2,500,000" />
@@ -168,6 +126,7 @@
                     android:textSize="15dp"/>
 
                 <TextView
+                    android:id="@+id/shipping_order"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="50,000" />
@@ -190,6 +149,7 @@
                     android:textSize="15dp"/>
 
                 <TextView
+                    android:id="@+id/discpunt_order"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0" />
@@ -210,6 +170,7 @@
                     android:textSize="15dp"/>
 
                 <TextView
+                    android:id="@+id/estimated_order"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2,550,000" />
@@ -236,20 +197,23 @@
                     android:textSize="17dp"
                     android:layout_marginLeft="10dp"/>
                 <RadioGroup
+                    android:id="@+id/rg_payment_method"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/rb_paypal"
                     android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <RadioButton
-                        android:layout_marginTop="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Paypal"/>
-                    <RadioButton
-                        android:layout_marginTop="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Thanh toán khi nhận hàng "/>
-                </RadioGroup>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Paypal"/>
+                <RadioButton
+                    android:id="@+id/rb_cod"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thanh toán khi nhận hàng"/>
+            </RadioGroup>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -266,11 +230,12 @@
                         android:textColor="@color/black"
                         android:textSize="17dp"/>
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_change_address"
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
                         android:text="Thay đồi"
-                        android:backgroundTint="@color/white"
+                        android:background="@drawable/bg_sign_in"
                         />
                 </LinearLayout>
                 <LinearLayout
@@ -284,9 +249,10 @@
                         android:layout_marginRight="10dp"
                         android:layout_gravity="center"/>
                     <TextView
+                        android:id="@+id/name_ship"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Đoàn vĩnh thành"
+                        android:text="Trống"
                         android:textStyle="bold"
                         android:layout_gravity="center"
                         />
@@ -302,9 +268,10 @@
                         android:layout_marginRight="10dp"
                         android:layout_gravity="center"/>
                     <TextView
+                        android:id="@+id/phone_ship"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0971110001"
+                        android:text="Trống"
                         android:textStyle="bold"
                         android:layout_gravity="center"
                         />
@@ -320,9 +287,10 @@
                         android:layout_marginRight="10dp"
                         android:layout_gravity="center"/>
                     <TextView
+                        android:id="@+id/address_ship"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="91 Nguyễn Trọng Tuyển ,Phường 15,Thành phố HCM"
+                        android:text="trống"
                         android:textStyle="bold"
                         android:layout_gravity="center"
                         />
@@ -335,7 +303,7 @@
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:orientation="vertical" >
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_Thanh_Toan"
                 android:text="Thanh toán"
                 android:layout_width="match_parent"

@@ -4,6 +4,10 @@
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\item_admin_category.xml"
     },
     {
+        "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-mergeDebugResources-42:\\layout\\item_shipping_address.xml",
+        "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\item_shipping_address.xml"
+    },
+    {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-mergeDebugResources-42:\\layout\\activity_splash.xml",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\activity_splash.xml"
     },
@@ -28,6 +32,10 @@
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\activity_add_edit_product.xml"
     },
     {
+        "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-mergeDebugResources-42:\\layout\\item_order.xml",
+        "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\item_order.xml"
+    },
+    {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-mergeDebugResources-42:\\layout\\activity_order_payment.xml",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\activity_order_payment.xml"
     },
@@ -38,6 +46,14 @@
     {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-mergeDebugResources-42:\\layout\\activity_setting.xml",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\activity_setting.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-mergeDebugResources-42:\\layout\\activity_shipping_address.xml",
+        "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\activity_shipping_address.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/activity_trang_chu.xml",
+        "source": "com.example.nike.app-main-45:/layout/activity_trang_chu.xml"
     },
     {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-mergeDebugResources-42:\\layout\\item_cart.xml",
@@ -64,20 +80,16 @@
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\fragment_home.xml"
     },
     {
-        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/fragment_home.xml",
-        "source": "com.example.nike.app-main-45:/layout/fragment_home.xml"
-    },
-    {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-mergeDebugResources-42:\\layout\\nav_header.xml",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\nav_header.xml"
     },
     {
-        "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-mergeDebugResources-42:\\layout\\fragment_order.xml",
-        "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\fragment_order.xml"
+        "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-mergeDebugResources-42:\\layout\\dialog_add_address.xml",
+        "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\dialog_add_address.xml"
     },
     {
-        "merged": "com.example.nike.app-mergeDebugResources-42:/layout/fragment_men.xml",
-        "source": "com.example.nike.app-main-45:/layout/fragment_men.xml"
+        "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-mergeDebugResources-42:\\layout\\fragment_order.xml",
+        "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\fragment_order.xml"
     },
     {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-mergeDebugResources-42:\\layout\\dialog_category.xml",
@@ -100,12 +112,12 @@
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\activity_search_product.xml"
     },
     {
-        "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-mergeDebugResources-42:\\layout\\fragment_dagiao.xml",
-        "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\fragment_dagiao.xml"
-    },
-    {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-mergeDebugResources-42:\\layout\\activity_edit_profile.xml",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\activity_edit_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-mergeDebugResources-42:\\layout\\fragment_dagiao.xml",
+        "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\fragment_dagiao.xml"
     },
     {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-mergeDebugResources-42:\\layout\\fragment_women.xml",
@@ -152,12 +164,12 @@
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\activity_forget_password.xml"
     },
     {
-        "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-mergeDebugResources-42:\\layout\\fragment_choxacnhan.xml",
-        "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\fragment_choxacnhan.xml"
-    },
-    {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-mergeDebugResources-42:\\layout\\activity_search.xml",
         "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\activity_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-mergeDebugResources-42:\\layout\\fragment_choxacnhan.xml",
+        "source": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-main-45:\\layout\\fragment_choxacnhan.xml"
     },
     {
         "merged": "C:\\Users\\admin\\.gradle\\daemon\\8.10.2\\com.example.nike.app-mergeDebugResources-42:\\layout\\item_category.xml",

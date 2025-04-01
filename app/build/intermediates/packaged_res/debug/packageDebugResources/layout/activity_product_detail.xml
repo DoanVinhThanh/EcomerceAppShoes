@@ -94,7 +94,7 @@
 
         <!-- Nút Thêm vào giỏ hàng -->
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnAddToCart"
+            android:id="@+id/btn_AddToCart"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="Add to Bag"

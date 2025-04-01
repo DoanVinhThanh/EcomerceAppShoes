@@ -21,38 +21,42 @@ public final class ItemCartBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final TextView colorCart;
+  public final ImageView btnDecrease;
+
+  @NonNull
+  public final ImageView btnIncrease;
 
   @NonNull
   public final ImageView imageCart;
 
   @NonNull
-  public final LinearLayout linearQuantityCart;
+  public final TextView nameCart;
 
   @NonNull
-  public final TextView nameCart;
+  public final TextView priceCart;
 
   @NonNull
   public final TextView quantityCart;
 
   @NonNull
-  public final TextView sexCart;
-
-  @NonNull
   public final TextView sizeCart;
 
-  private ItemCartBinding(@NonNull LinearLayout rootView, @NonNull TextView colorCart,
-      @NonNull ImageView imageCart, @NonNull LinearLayout linearQuantityCart,
-      @NonNull TextView nameCart, @NonNull TextView quantityCart, @NonNull TextView sexCart,
-      @NonNull TextView sizeCart) {
+  @NonNull
+  public final TextView totalCart;
+
+  private ItemCartBinding(@NonNull LinearLayout rootView, @NonNull ImageView btnDecrease,
+      @NonNull ImageView btnIncrease, @NonNull ImageView imageCart, @NonNull TextView nameCart,
+      @NonNull TextView priceCart, @NonNull TextView quantityCart, @NonNull TextView sizeCart,
+      @NonNull TextView totalCart) {
     this.rootView = rootView;
-    this.colorCart = colorCart;
+    this.btnDecrease = btnDecrease;
+    this.btnIncrease = btnIncrease;
     this.imageCart = imageCart;
-    this.linearQuantityCart = linearQuantityCart;
     this.nameCart = nameCart;
+    this.priceCart = priceCart;
     this.quantityCart = quantityCart;
-    this.sexCart = sexCart;
     this.sizeCart = sizeCart;
+    this.totalCart = totalCart;
   }
 
   @Override
@@ -82,9 +86,15 @@ public final class ItemCartBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.color_cart;
-      TextView colorCart = ViewBindings.findChildViewById(rootView, id);
-      if (colorCart == null) {
+      id = R.id.btn_decrease;
+      ImageView btnDecrease = ViewBindings.findChildViewById(rootView, id);
+      if (btnDecrease == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_increase;
+      ImageView btnIncrease = ViewBindings.findChildViewById(rootView, id);
+      if (btnIncrease == null) {
         break missingId;
       }
 
@@ -94,15 +104,15 @@ public final class ItemCartBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.linear_quantity_cart;
-      LinearLayout linearQuantityCart = ViewBindings.findChildViewById(rootView, id);
-      if (linearQuantityCart == null) {
-        break missingId;
-      }
-
       id = R.id.name_cart;
       TextView nameCart = ViewBindings.findChildViewById(rootView, id);
       if (nameCart == null) {
+        break missingId;
+      }
+
+      id = R.id.price_cart;
+      TextView priceCart = ViewBindings.findChildViewById(rootView, id);
+      if (priceCart == null) {
         break missingId;
       }
 
@@ -112,20 +122,20 @@ public final class ItemCartBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.sex_cart;
-      TextView sexCart = ViewBindings.findChildViewById(rootView, id);
-      if (sexCart == null) {
-        break missingId;
-      }
-
       id = R.id.size_cart;
       TextView sizeCart = ViewBindings.findChildViewById(rootView, id);
       if (sizeCart == null) {
         break missingId;
       }
 
-      return new ItemCartBinding((LinearLayout) rootView, colorCart, imageCart, linearQuantityCart,
-          nameCart, quantityCart, sexCart, sizeCart);
+      id = R.id.total_cart;
+      TextView totalCart = ViewBindings.findChildViewById(rootView, id);
+      if (totalCart == null) {
+        break missingId;
+      }
+
+      return new ItemCartBinding((LinearLayout) rootView, btnDecrease, btnIncrease, imageCart,
+          nameCart, priceCart, quantityCart, sizeCart, totalCart);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
